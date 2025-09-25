@@ -1,0 +1,25 @@
+cd /usr/local/bin
+
+# get current remote repo
+sudo git remote -v
+
+# set remote repo to own
+sudo git remote set-url origin https://github.com/erstec/Pi-Star_v4_Binaries_Bin.git
+
+# set remote repo to original pi-star
+sudo git remote set-url origin https://github.com/AndyTaylorTweet/Pi-Star_v4_Binaries_Bin.git
+
+# switch to new branch
+sudo git branch -v -a
+#sudo git switch -c <branch> --track <remote>/<branch>
+sudo git switch -c ly3ph/spec_build --track origin/ly3ph/spec_build
+
+# get current branch and HEAD
+sudo git --work-tree=/usr/local/bin --git-dir=/usr/local/bin/.git rev-parse --abbrev-ref HEAD
+
+
+
+# pull master branch repo
+sudo git --work-tree=/usr/local/bin --git-dir=/usr/local/bin/.git pull origin master
+# pull custom branch
+sudo git --work-tree=/usr/local/bin --git-dir=/usr/local/bin/.git pull origin ly3ph/spec_build
